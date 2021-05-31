@@ -3,24 +3,26 @@ body {
   align-items: center;
   text-align: center;
   background:linear-gradient(to right, #488e8b, #ed5d6e );
+  margin: 0;
 }
 
-div {
+.hero {
   display: flex;
-  flex-wrap: wrap;
   align-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 25%;
-  padding: 0.5vw;;
+  flex-direction: row;
+  padding-top: 2%;
 }
+
 #dispRawData, #dispSortedData  {
-  width: 100%;
+  width: 50%;
+  min-height: 35vh;
+  max-height: 80vh;
 }
 
 #rawData, #sortedData {
-  width: 70%;
-  height: 15vw;
+  width: 90%;
+  min-height: 35vh;
+  max-height: 80vh;
 }
 
 h1 { 
@@ -32,6 +34,7 @@ h1 {
   font-weight: bold;
   margin: 0; 
 }
+
 textarea {
   font-family: 'Brush Script MT', cursive;
 }
@@ -55,4 +58,33 @@ textarea {
 }
 #topNav {
   margin-top: 5vh;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #f1e150;
+}
+
+.footerDiv {
+  padding: 0%;
+}
+@media screen and (max-width: 800px) and (min-width: 434px) {
+  
+  .hero {
+    flex-direction: column;
+  }
+  div {
+    width: 100%;
+  }
+  #rawData, #sortedData {
+    min-height: 25vh;
+  }
+  #dispRawData, #dispSortedData  {
+    width: 100%;
+    min-height: 25vh;
+  }
+  
 }

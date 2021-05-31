@@ -12,20 +12,27 @@
     <div id="topNav">
         <H1>ROUTE OPTIMIZER</H1>
     </div>
-    <div id="wrapper">
-        <div id="dispRawData">
-            <textarea id="rawData" name="w3review" class="form-control z-depth-1"
-                placeholder="add to optimize"></textarea>
-        </div>
-        <div id="vieBtn" class="viewBtn">
-            <button id="sortBtn" class="button button2" onClick=sortCord()>OPTIMIZE DISTANCE</button>
-        </div>
-        <div id="dispSortedData">
-            <textarea id="sortedData" readonly class="form-control" name="w3review z-depth-1"
-                placeholder="Optimized route"></textarea>
-        </div>
-    </div>
+    <section class="hero">
 
+            <div id="dispRawData" class="myDiv">
+                <textarea id="rawData" name="w3review" class="form-control z-depth-1"
+                    placeholder="add to optimize"></textarea>
+            </div>
+            <div id="vieBtn" class="btnSort">
+                <button id="sortBtn" class="button button2" onClick=sortCord()>OPTIMIZE DISTANCE</button>
+            </div>
+            <div id="dispSortedData" class="myDiv">
+                <textarea id="sortedData" readonly class="form-control" name="w3review z-depth-1"
+                    placeholder="Optimized route"></textarea>
+            </div>
+    </section>
+    <footer>
+        <div class = "footerDiv">
+            Want to know which place to go first to lessen up your travel distance(as aerial view), add those coordinates here and get the sorted list. 
+            <br>PS. first coordinate is considered as <b>STARTING POINT</b><br>
+            coordinate of format: 12.921647, 77.669050<br>
+        </div>
+    </footer>
     <script type="text/javascript">
 
         function degrees_to_radians(degrees) {
@@ -144,7 +151,7 @@
                 console.log({ namesList1 });
                 var count = (namesList1.length / 2);
                 console.log({ count });
-                if (count === 1) {
+                if (count <= 1) {
                     alert("please add more than 1 way points please.")
                 } else {
                     var distance = Array.from(Array(count), () => new Array(count));
