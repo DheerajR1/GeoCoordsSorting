@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home | Way Point Optimizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="./css/main.css" rel="stylesheet" />
     <script src="./JS/app.js"></script>
 </head>
@@ -19,8 +20,11 @@
             <textarea id="rawData" name="w3review" class="form-control z-depth-1"
                 placeholder="add to optimize"></textarea>
         </div>
-        <div id="vieBtn" class="btnSort">
+        <div id="viewBtn" class="btnSort">
             <button id="sortBtn" class="button button2" onClick=sortCord()>OPTIMIZE DISTANCE</button>
+            <button id="gpxBtn" class="button button2" onClick=downloadGpx() >
+                gpx <i class="fa fa-download" aria-hidden="true"></i>
+            </button>
         </div>
         <div id="dispSortedData" class="myDiv">
             <textarea id="sortedData" readonly class="form-control" name="w3review z-depth-1"

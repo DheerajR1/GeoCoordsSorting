@@ -1,3 +1,5 @@
+//GLobal variables
+let gpxVal = "";
 
 function degrees_to_radians(degrees) {
     var pi = Math.PI;
@@ -99,7 +101,37 @@ function findMinRoute(tsp) {
     return visitedRouteList;
 }
 
+function download(file) {
+
+    //creating an invisible element
+    console.log("test:" + gpxVal);
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8, ' + encodeURIComponent(gpxVal));
+    element.setAttribute('download', file);
+
+    document.body.appendChild(element);
+
+    //onClick property
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+function downloadGpx() {
+    var currentdate = new Date();
+
+    var filename = currentdate.getDate() + "-"
+        + (currentdate.getMonth() + 1) + "-"
+        + currentdate.getFullYear() + "_"
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds() + ".gpx";
+    console.log(gpxVal);
+    download(filename);
+}
+
 function sortCord() {
+    gpxVal = ""; // clearing variable
     var rawCoord = document.getElementById("rawData").value.trim();
     document.getElementById("sortedData").value = "";
     if (rawCoord === "") {
@@ -144,13 +176,21 @@ function sortCord() {
 
             var visitedRouteList = findMinRoute(distance);
 
+            var gpxVal = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n" + "<gpx>\r\n"
+                + "<author>DextrousMonk</author>\r\n" + "<desc>Made For waypoint optimizer</desc>";
+
             for (var i = 0; i < visitedRouteList.length; i++) {
                 console.log(completecoords[visitedRouteList[i]]);
                 document.getElementById("sortedData").value += completecoords[visitedRouteList[i]] + "\n";
+                gpxVal += "\r\n<wpt lat=\"" + completecoords[i].split(",")[0].trim() + "\"\r\n" + " lon=\""
+                    + completecoords[i].split(",")[1].trim() + "\">\r\n" + "<name>Waypoint #" + i + "</name>\r\n"
+                    + "</wpt>";
             }
-            console.log(completecoords.values(0));
+            gpxVal += "\r\n</gpx>";
+            console.log({ gpxVal });
             console.log({ visitedRouteList });
 
+            /*
             // Clustering code...
             var maxDist = 1.00;
             for (var k = 0; k < (visitedRouteList.length - 1); k++) {
@@ -160,6 +200,7 @@ function sortCord() {
                     console.log();
                 }
             }
+            */
         }
     }
 }
