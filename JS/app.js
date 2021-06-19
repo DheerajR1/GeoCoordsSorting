@@ -1,5 +1,5 @@
 //GLobal variables
-let gpxVal = "";
+var gpxVal = "";
 
 function degrees_to_radians(degrees) {
     var pi = Math.PI;
@@ -176,7 +176,7 @@ function sortCord() {
 
             var visitedRouteList = findMinRoute(distance);
 
-            var gpxVal = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n" + "<gpx>\r\n"
+            gpxVal = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n" + "<gpx>\r\n"
                 + "<author>DextrousMonk</author>\r\n" + "<desc>Made For waypoint optimizer</desc>";
 
             for (var i = 0; i < visitedRouteList.length; i++) {
