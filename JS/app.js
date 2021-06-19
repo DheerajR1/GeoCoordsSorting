@@ -131,7 +131,6 @@ function downloadGpx() {
 }
 
 function sortCord() {
-    gpxVal = ""; // clearing variable
     var rawCoord = document.getElementById("rawData").value.trim();
     document.getElementById("sortedData").value = "";
     if (rawCoord === "") {
@@ -150,6 +149,9 @@ function sortCord() {
         if (count <= 1) {
             alert("please add more than 1 way points please.")
         } else {
+            document.getElementById('gpxBtn').style.display = "block";
+            gpxVal = ""; // clearing variable
+            
             var distance = Array.from(Array(count), () => new Array(count));
             var coords = [count];
             console.log({ count });

@@ -82,6 +82,11 @@ footer {
 .footerDiv {
   padding: 0%;
 }
+
+button:disabled {
+  background: grey;
+}
+
 @media screen and (max-width: 800px) and (min-width: 434px) {
   
   .hero {
