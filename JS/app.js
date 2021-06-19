@@ -150,6 +150,16 @@ function sortCord() {
             }
             console.log(completecoords.values(0));
             console.log({ visitedRouteList });
+
+            // Clustering code...
+            var maxDist = 1.00;
+            for (var k = 0; k < (visitedRouteList.length - 1); k++) {
+                if ((distance[visitedRouteList[k]][visitedRouteList[k + 1]]) < maxDist) {
+                    console.log(completecoords[k] + "   :  " + distance[visitedRouteList[k]][visitedRouteList[k + 1]]);
+                } else {
+                    console.log();
+                }
+            }
         }
     }
 }
