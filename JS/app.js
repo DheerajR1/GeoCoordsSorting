@@ -106,7 +106,7 @@ function download(file) {
     //creating an invisible element
     console.log("test:" + gpxVal);
     var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8, ' + encodeURIComponent(gpxVal));
+    element.setAttribute('href', 'data:text/json;charset=utf-8,'+(gpxVal));
     element.setAttribute('download', file);
 
     document.body.appendChild(element);
@@ -154,7 +154,6 @@ function sortCord() {
 
             var distance = Array.from(Array(count), () => new Array(count));
             var coords = [count];
-            console.log({ count });
 
             for (var i = 0; i < namesList1.length; i += 2) {
                 for (var j = 0; j < namesList1.length; j += 2) {
@@ -162,11 +161,8 @@ function sortCord() {
                 }
             }
 
-            console.log({ distance });
-
             var completecoords = [count];
             var individualVals = s.toString().split(",");
-            console.log({ individualVals });
 
             var kk = 0;
             for (var i = 0; i < individualVals.length; i++) {
@@ -174,23 +170,22 @@ function sortCord() {
                 kk += 1;
                 i += 1;
             }
-            console.log({ completecoords });
 
             var visitedRouteList = findMinRoute(distance);
 
-            gpxVal = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n" + "<gpx>\r\n"
-                + "<author>DextrousMonk</author>\r\n" + "<desc>Made For waypoint optimizer</desc>";
+            gpxVal = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n" 
+                    + "<gpx version = \"1.1\" creator = \"DextrousMonk\">\r\n"
+                    + "\t<desc>Made For waypoint optimizer</desc>\r\n"
+                    + "\t<rte>\r\n"
+                    + "\t\t<name>Route 1</name>\r\n"
+                    + "\t\t<number>0</number>";
 
             for (var i = 0; i < visitedRouteList.length; i++) {
-                console.log(completecoords[visitedRouteList[i]]);
                 document.getElementById("sortedData").value += completecoords[visitedRouteList[i]] + "\n";
-                gpxVal += "\r\n<wpt lat=\"" + completecoords[i].split(",")[0].trim() + "\"\r\n" + " lon=\""
-                    + completecoords[i].split(",")[1].trim() + "\">\r\n" + "<name>Waypoint #" + i + "</name>\r\n"
-                    + "</wpt>";
+                gpxVal += "\r\n\t\t<rtept lat=\"" + completecoords[visitedRouteList[i]].split(",")[0].trim() 
+                        + "\" lon=\"" + completecoords[visitedRouteList[i]].split(",")[1].trim() + "\"/>";
             }
-            gpxVal += "\r\n</gpx>";
-            console.log({ gpxVal });
-            console.log({ visitedRouteList });
+            gpxVal += "\r\n\t</rte>\r\n</gpx>"; 
 
             // Clustering code...
             var maxDist = 1.00;

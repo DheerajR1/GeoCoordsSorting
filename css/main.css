@@ -2,7 +2,10 @@ body {
   align-content: center;
   align-items: center;
   text-align: center;
-  background:linear-gradient(to right, #488e8b, #ed5d6e );
+ /* background:linear-gradient(to right, #488e8b, #ed5d6e );*/
+  background-image: url("../images/23322.jpg");
+  background-attachment: fixed;
+  background-size: 100% 100%;
   margin: 0;
 }
 
@@ -22,11 +25,12 @@ body {
 #rawData, #sortedData {
   width: 90%;
   min-height: 35vh;
+  height: 50vh;
   max-height: 80vh;
 }
 
 h1 { 
-  color:  #3353ab; 
+  color:  #f1e150; 
   font-family: 'Trocchi', serif; 
   font-size: 45px; 
   font-weight: normal; 
@@ -36,7 +40,8 @@ h1 {
 }
 
 textarea {
-  font-family: 'Brush Script MT', cursive;
+  font-family: 'Brush Script MT';
+  font-size: 22px;
 }
 
 .button {
@@ -87,7 +92,7 @@ button:disabled {
   background: grey;
 }
 
-@media screen and (max-width: 800px) and (min-width: 434px) {
+@media screen and (max-width: 800px) {
   
   .hero {
     flex-direction: column;
@@ -97,6 +102,7 @@ button:disabled {
   }
   #rawData, #sortedData {
     min-height: 25vh;
+    height: 25vh;
   }
   #dispRawData, #dispSortedData  {
     width: 100%;
