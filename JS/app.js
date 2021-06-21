@@ -151,7 +151,7 @@ function sortCord() {
         } else {
             document.getElementById('gpxBtn').style.display = "block";
             gpxVal = ""; // clearing variable
-            
+
             var distance = Array.from(Array(count), () => new Array(count));
             var coords = [count];
             console.log({ count });
@@ -192,17 +192,16 @@ function sortCord() {
             console.log({ gpxVal });
             console.log({ visitedRouteList });
 
-            /*
             // Clustering code...
             var maxDist = 1.00;
+            var clusterList = [];
             for (var k = 0; k < (visitedRouteList.length - 1); k++) {
                 if ((distance[visitedRouteList[k]][visitedRouteList[k + 1]]) < maxDist) {
-                    console.log(completecoords[k] + "   :  " + distance[visitedRouteList[k]][visitedRouteList[k + 1]]);
+                    console.log(completecoords[visitedRouteList[k]] + " : " + completecoords[visitedRouteList[k + 1]] + ":   :  " + distance[visitedRouteList[k]][visitedRouteList[k + 1]]);
                 } else {
-                    console.log();
+                    console.log("");
                 }
             }
-            */
         }
     }
 }
