@@ -189,14 +189,22 @@ function sortCord() {
 
             // Clustering code...
             var maxDist = 1.00;
-            var clusterList = [];
+            var clusterList = [[],[]];
+            var clusterIndex = 0;
+            var counter = 0; //nodes in a cluster
             for (var k = 0; k < (visitedRouteList.length - 1); k++) {
                 if ((distance[visitedRouteList[k]][visitedRouteList[k + 1]]) < maxDist) {
+                    console.log("TEST:",clusterList[clusterIndex]);
+                    clusterList[clusterIndex][count] = (completecoords[visitedRouteList[k]]);
+                    count++;
                     console.log(completecoords[visitedRouteList[k]] + " : " + completecoords[visitedRouteList[k + 1]] + ":   :  " + distance[visitedRouteList[k]][visitedRouteList[k + 1]]);
                 } else {
+                    clusterIndex++;
+                    count = 0;
                     console.log("");
                 }
             }
+            console.log({clusterList});
         }
     }
 }
