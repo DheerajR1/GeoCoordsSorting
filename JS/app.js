@@ -190,7 +190,7 @@ function sortCord() {
             // Clustering code...
             var maxDist = 1.00;
             var clusterList = [[],[]];
-            var clusterIndex = 0;
+            var clusterIndex = 0; // to keep clusters in one place
             var counter = 0; //nodes in a cluster
             for (var k = 0; k < (visitedRouteList.length - 1); k++) {
                 if ((distance[visitedRouteList[k]][visitedRouteList[k + 1]]) < maxDist) {
