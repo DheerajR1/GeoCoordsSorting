@@ -204,7 +204,7 @@ function sortCord() {
           //          console.log("");
                 }
             }
-        //    console.log({clusterList});
+            console.log({clusterList});
         }
     }
 }
