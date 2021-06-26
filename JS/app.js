@@ -155,6 +155,7 @@ function sortCord() {
             var distance = Array.from(Array(count), () => new Array(count));
             var coords = [count];
 
+            // create a 2D matrix of distance between 1 node to another
             for (var i = 0; i < namesList1.length; i += 2) {
                 for (var j = 0; j < namesList1.length; j += 2) {
                     distance[i / 2][j / 2] = distanceFunc(namesList1[i], namesList1[j], namesList1[i + 1], namesList1[j + 1]);
@@ -164,6 +165,7 @@ function sortCord() {
             var completecoords = [count];
             var individualVals = s.toString().split(",");
 
+            //take the commas seperated coords as one coord and place in a array
             var kk = 0;
             for (var i = 0; i < individualVals.length; i++) {
                 completecoords[kk] = individualVals[i] + "," + individualVals[i + 1];
@@ -171,6 +173,7 @@ function sortCord() {
                 i += 1;
             }
 
+            // get minimum route list from function finMinRoute() args: distance 2D array
             var visitedRouteList = findMinRoute(distance);
 
             gpxVal = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n" 
